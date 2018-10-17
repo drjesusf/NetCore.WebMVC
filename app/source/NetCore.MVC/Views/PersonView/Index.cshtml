@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model NetCore.MVC.Models.PersonViewModel
+
+<h2>Gestì&oacute;n de Personas</h2>
+<div class="container">
+    <div class="row">
+        <form asp-controller="Person" asp-action="Post" method="post">
+            <div class="form-group">
+                <label for="name">Nombres</label>
+                <input type="text" asp-for="Person.Name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Ingresar nombre" />
+            </div>
+            <div class="form-group">
+                <label for="lastname">Apellidos</label>
+                <input asp-for="Person.Lastname" type="text" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Ingresar apellido" />
+            </div>
+            <div class="form-group">
+                <label for="lastname">Correo</label>
+                <input asp-for="Person.EmailAddress" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ingresar correo" />
+            </div>
+            <div class="form-group">
+                <label for="age">Edad</label>
+                <input asp-for="Person.Age" type="text" class="form-control" id="age" aria-describedby="emailHelp" placeholder="Ingresar edad" />
+            </div>
+            <div class="form-group">
+                <label for="dni">Dni</label>
+                <input asp-for="Person.Dni" type="text" class="form-control" id="dni" aria-describedby="emailHelp" placeholder="Ingresar dni" />
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Ver detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var person in Model.Persons)
+            {
+                <tr>
+                    <td>@person.Name</td>
+                    <td>@person.Lastname</td>
+                    <td>@person.EmailAddress</td>
+                    <td>
+                        <a asp-controller="PersonView" asp-action="GetPerson" asp-route-dni="@person.Dni">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
