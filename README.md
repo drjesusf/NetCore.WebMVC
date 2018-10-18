@@ -1,5 +1,5 @@
 # NetCore.WebMVC
-Repositorio para la Demo del curso de ADSW
+Repositorio para la Demo del curso de ADSW sobre el tema de exposición .NET Framework & .NET Core
 
 Se agregaron los siguientes proyectos:
 
